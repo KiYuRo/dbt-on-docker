@@ -1,0 +1,23 @@
+services:
+  database:
+    image: postgres:14
+    container_name: database
+    restart: always
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: root
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./database/data:/var/lib/postgresql/data
+      - ./database/init:/docker-entrypoint-initdb.d
+  dbt:
+    build: ./dbt
+    container_name: dbt
+    depends_on:
+      - database
+    volumes:
+      - ../dbt/:/home/dbt-user/dbt/
+      - ../dbt/profiles.yml:/root/.dbt/profiles.yml
+    tty: true
