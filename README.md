@@ -1,5 +1,17 @@
 # dbtをDockerで試す
 
+# ディレクトリ構成
+```
+C:.
+├─dbt           # dbtのプロジェクトを格納
+│  └─project    # 作成したdbtプロジェクト
+└─docker        # docker環境構築関連のファイルとディレクトリを格納
+    ├─database  # データベースコンテナ設定用
+    │  ├─data   # データベースを永続化するためのディレクトリ
+    │  └─init   # コンテナ起動時に初回実行するSQLファイルを格納
+    └─dbt       # dbtサーバ用
+```
+
 # Docker環境構築
 コンテナ起動
 ```
@@ -94,5 +106,3 @@ $dbt test
 
 05:22:37  Done. PASS=3 WARN=0 ERROR=1 SKIP=0 TOTAL=4
 ```
-
-
