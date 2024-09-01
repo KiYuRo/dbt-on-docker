@@ -88,4 +88,11 @@ root=# \dt
 (1 row)
 ```
 
-#
+# モデルテスト
+```
+$dbt test
+
+05:22:37  Done. PASS=3 WARN=0 ERROR=1 SKIP=0 TOTAL=4
+```
+
+
