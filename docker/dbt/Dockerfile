@@ -6,6 +6,9 @@ RUN useradd -ms /bin/bash $USERNAME
 
 WORKDIR /home/$USERNAME/dbt
 
+RUN apt-get update && \
+    apt-get install -y git
+
 USER $USERNAME
 
 COPY requirements.txt /home/$USERNAME/dbt/
